@@ -1,39 +1,29 @@
-import { trpc, getQueryClient } from "@/trpc/server";
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { Suspense } from "react";
-import { Client } from "./client";
+"use client";
 
-const Page = async () => {
-	const queryClient = getQueryClient();
-	void queryClient.prefetchQuery(trpc.craete_AI.queryOptions({ text: "badaboom" }));
-	return (
-		<HydrationBoundary state={dehydrate(queryClient)}>
-			<Suspense fallback={<p>Loading...</p>}>
-				<Client />
-			</Suspense>
-		</HydrationBoundary>
-	);
-}
- 
+import { Button } from "@/components/ui/button";
+import { useTRPC } from "@/trpc/client";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
+
+const Page = () => {
+  const trpc = useTRPC();
+  const invoke = useMutation(
+    trpc.invoke.mutationOptions({
+      onSuccess: () => {
+        toast.success("Background job started!");
+      },
+    })
+  );
+  return (
+    <div className="p-4 max-w-2xl mx-auto">
+      <Button
+        disabled={invoke.isPending}
+        onClick={() => invoke.mutate({ text: "John Pork!" })}
+      >
+        inovke
+      </Button>
+    </div>
+  );
+};
+
 export default Page;
-
-
-
-
-// "use client";
-
-// import { useTRPC } from "@/trpc/client";
-// import { useQuery } from "@tanstack/react-query";
-
-// const Page = () => {
-// 	const trpc = useTRPC();
-// 	const { data } = useQuery(trpc.craete_AI.queryOptions({ text: "badaboom" }));
-
-// 	return (
-// 		<div>
-// 			{JSON.stringify(data)}
-// 		</div>
-// 	);
-// }
- 
-// export default Page;
