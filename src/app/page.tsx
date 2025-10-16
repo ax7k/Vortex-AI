@@ -20,8 +20,7 @@ const Page = () => {
         disabled={invoke.isPending}
         onClick={() => invoke.mutate({ text: "John Pork!" })}
       >
-        inovke
-      </Button>
+        invoke      </Button>
     </div>
   );
 };
