@@ -25,8 +25,7 @@ const Page = () => {
         disabled={invoke.isPending}
         onClick={() => invoke.mutate({ value: value })}
       >
-        inovke
-      </Button>
+        invoke      </Button>
     </div>
   );
 };

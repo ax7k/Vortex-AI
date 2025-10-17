@@ -8,8 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "e2b:build:dev": "cd vortex_ai_test && npx tsx build.dev.ts",
-    "e2b:build:prod": "cd vortex_ai_test && npx tsx build.prod.ts"
+    "e2b:build:dev": "cd sandbox-templates/nextjs && npx tsx build.dev.ts",
+    "e2b:build:prod": "cd sandbox-templates/nextjs && npx tsx build.prod.ts"
   },
   "dependencies": {
     "@e2b/code-interpreter": "^2.1.0",
@@ -54,7 +54,7 @@
     "dotenv": "^17.2.3",
     "e2b": "^2.3.1",
     "embla-carousel-react": "^8.6.0",
-    "inngest": "^3.39.2",
+    "inngest": "^3.40.1",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.545.0",
     "next": "^15.5.5",
@@ -70,7 +70,7 @@
     "superjson": "^2.2.2",
     "tailwind-merge": "^3.3.1",
     "vaul": "^1.1.2",
-    "zod": "^4.1.12"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
