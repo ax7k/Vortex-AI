@@ -7,9 +7,12 @@
     "devt": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "e2b:build:dev": "cd vortex_ai_test && npx tsx build.dev.ts",
+    "e2b:build:prod": "cd vortex_ai_test && npx tsx build.prod.ts"
   },
   "dependencies": {
+    "@e2b/code-interpreter": "^2.1.0",
     "@hookform/resolvers": "^5.2.2",
     "@inngest/agent-kit": "^0.8.3",
     "@prisma/client": "^6.10.1",
@@ -48,6 +51,8 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.2.3",
+    "e2b": "^2.3.1",
     "embla-carousel-react": "^8.6.0",
     "inngest": "^3.39.2",
     "input-otp": "^1.4.2",
