@@ -1,5 +1,6 @@
 import {
   grok,
+  openai,
   createAgent,
   createTool,
   createNetwork,
@@ -30,10 +31,13 @@ export const codeAgentFunction = inngest.createFunction(
       description:
         "An expert coding agent, specialized in building Next.js applications using Shadcn UI components within a sandboxed environment.",
       system: PROMPT,
-      model: grok({
-        model: "grok-code-fast-1",
-        defaultParameters: { temperature: 0.1 },
+      model: openai({
+        model: "gpt-5",
       }),
+    //   model: grok({
+    //     model: "grok-code-fast-1",
+    //     defaultParameters: { temperature: 0.1 },
+    //   }),
       tools: [
         createTool({
           name: "terminal",
