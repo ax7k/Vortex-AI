@@ -6,7 +6,7 @@ export const ShimmerMessages = () => {
     "Thinking...",
     "Loading...",
     "Generating...",
-    "Analyzing you request...",
+    "Analyzing your request...",
     "Building your website...",
     "Crafting components...",
     "Optimising layout...",

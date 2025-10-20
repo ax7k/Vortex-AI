@@ -12,7 +12,6 @@ import {
   DropdownMenuPortal,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
-  DropdownMenuSeparator,
   DropdownMenuSub,
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
@@ -71,10 +70,14 @@ export const ProjectHeader = ({ projectId }: Props) => {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuRadioGroup value={theme} onValueChange={setTheme} className="border-2 rounded ms-2 p-0.5 bg-gray-50 dark:bg-gray-700 flex flex-col gap-0.5">
+                <DropdownMenuRadioGroup
+                  value={theme}
+                  onValueChange={setTheme}
+                  className="border-2 rounded ms-2 p-0.5 bg-gray-50 dark:bg-gray-700 flex flex-col gap-0.5"
+                >
                   <DropdownMenuRadioItem
                     value="light"
-                    className="bg-white dark:bg-gray-800 p-1 rouded "
+                    className="bg-white dark:bg-gray-800 p-1 rounded"
                   >
                     <span>Light</span>
                   </DropdownMenuRadioItem>

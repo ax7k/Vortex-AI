@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Fragment } from "@/generated/prisma";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Hint } from "./hint";
+import { Hint } from "@/components/hint";
 
 interface Props {
   data: Fragment;
