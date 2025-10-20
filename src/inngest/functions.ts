@@ -32,7 +32,7 @@ export const codeAgentFunction = inngest.createFunction(
         "An expert coding agent, specialized in building Next.js applications using Shadcn UI components within a sandboxed environment.",
       system: PROMPT,
       model: openai({
-        model: "gpt-5",
+        model: "gpt-5-mini-2025-08-07",
       }),
     //   model: grok({
     //     model: "grok-code-fast-1",
