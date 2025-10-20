@@ -39,7 +39,7 @@ export const ProjectsList = () => {
                 />
                 <div className="flex flex-col">
                   <h3 className="truncate font-medium">{project.name}</h3>
-                  <p className="text-sm text text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     {formatDistanceToNow(new Date(project.updatedAt), {
                       addSuffix: true,
                     })}
