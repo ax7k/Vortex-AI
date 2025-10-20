@@ -83,13 +83,13 @@ export const ProjectHeader = ({ projectId }: Props) => {
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem
                     value="dark"
-                    className="bg-white dark:bg-gray-800 p-1 rouded "
+                    className="bg-white dark:bg-gray-800 p-1 rounded"
                   >
                     <span>Dark</span>
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem
                     value="system"
-                    className="bg-white dark:bg-gray-800 p-1 rouded "
+                    className="bg-white dark:bg-gray-800 p-1 rounded"
                   >
                     <span>System</span>
                   </DropdownMenuRadioItem>
