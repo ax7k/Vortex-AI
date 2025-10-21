@@ -15,11 +15,12 @@ datasource db {
 }
 
 model Project {
-	id        String   @id @default(uuid())
-	name      String
-	createdAt DateTime @default(now())
-	updatedAt DateTime @updatedAt
-	messages  Message[]
+    id        String    @id @default(uuid())
+    name      String
+    userId    String
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    messages  Message[]
 }
 
 enum MessageRole {
@@ -40,8 +41,8 @@ model Message {
     createdAt DateTime    @default(now())
     updatedAt DateTime    @updatedAt
     fragment  Fragment?
-	projectId String
-	project   Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+    projectId String
+    project   Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
 }
 
 model Fragment {

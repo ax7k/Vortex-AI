@@ -1,19 +1,21 @@
 "use client";
 
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import TextAreaAutosize from "react-textarea-autosize";
 import { z } from "zod";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { useTRPC } from "@/trpc/client";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useClerk } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormField } from "@/components/ui/form";
+import { PROJECT_TEMPLATES } from "../../constants";
 import { ArrowUpIcon, Loader2Icon } from "lucide-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { cn } from "@/lib/utils";
-import { useTRPC } from "@/trpc/client";
-import { Button } from "@/components/ui/button";
-import { Form, FormField } from "@/components/ui/form";
-import { useRouter } from "next/navigation";
-import { PROJECT_TEMPLATES } from "../../constants";
+
+import TextAreaAutosize from "react-textarea-autosize";
 
 const formSchema = z.object({
   value: z
@@ -25,6 +27,7 @@ const formSchema = z.object({
 export const ProjectForm = () => {
   const router = useRouter();
   const trpc = useTRPC();
+  const clerk = useClerk();
   const queryClient = useQueryClient();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,8 +44,10 @@ export const ProjectForm = () => {
         // TODO Invalidate usage status
       },
       onError: (error) => {
-        // TODO redirecto to pricing page depending on the error
         toast.error(error.message);
+        if (error.data?.code === "UNAUTHORIZED") {
+          router.push("/sign-in");
+        }
       },
     })
   );
