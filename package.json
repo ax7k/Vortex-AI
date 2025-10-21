@@ -12,6 +12,8 @@
     "e2b:build:prod": "cd sandbox-templates/nextjs && npx tsx build.prod.ts"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.23.0",
+    "@clerk/themes": "^2.2.51",
     "@e2b/code-interpreter": "^2.1.0",
     "@hookform/resolvers": "^5.2.2",
     "@inngest/agent-kit": "^0.8.3",
