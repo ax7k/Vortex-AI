@@ -12,7 +12,7 @@
     "e2b:build:prod": "cd sandbox-templates/nextjs && npx tsx build.prod.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.23.0",
+    "@clerk/nextjs": "^6.23.3",
     "@clerk/themes": "^2.2.51",
     "@e2b/code-interpreter": "^2.1.0",
     "@hookform/resolvers": "^5.2.2",
@@ -63,6 +63,7 @@
     "next-themes": "^0.4.6",
     "prismjs": "^1.30.0",
     "random-word-slugs": "^0.1.7",
+    "rate-limiter-flexible": "^7.1.1",
     "react": "^19.0.0",
     "react-day-picker": "^9.11.1",
     "react-dom": "^19.0.0",
