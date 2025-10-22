@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "postinstall": "prisma generate",
     "e2b:build:dev": "cd sandbox-templates/nextjs && npx tsx build.dev.ts",
     "e2b:build:prod": "cd sandbox-templates/nextjs && npx tsx build.prod.ts"
   },
@@ -67,6 +68,7 @@
     "react": "^19.0.0",
     "react-day-picker": "^9.11.1",
     "react-dom": "^19.0.0",
+    "react-error-boundary": "^6.0.0",
     "react-hook-form": "^7.65.0",
     "react-resizable-panels": "^3.0.6",
     "react-textarea-autosize": "^8.5.9",

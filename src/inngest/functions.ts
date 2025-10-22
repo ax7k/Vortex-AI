@@ -18,6 +18,7 @@ import {
 import { z } from "zod";
 import { FRAGMENT_TITLE_PROMPT, PROMPT, RESPONSE_PROMPT } from "@/prompt";
 import { prisma } from "@/lib/db";
+import { SANDBOX_TIMEOUT } from "./types";
 
 interface AgentState {
   summary: string;
@@ -30,6 +31,7 @@ export const codeAgentFunction = inngest.createFunction(
   async ({ event, step }) => {
     const sandboxId = await step.run("get-sandbox-id", async () => {
       const sandbox = await Sandbox.create("vortex-ai-dev");
+      await sandbox.setTimeout(SANDBOX_TIMEOUT);
       return sandbox.sandboxId;
     });
     const previousMessages = await step.run(
@@ -43,6 +45,7 @@ export const codeAgentFunction = inngest.createFunction(
           orderBy: {
             createdAt: "desc",
           },
+          take: 5,
         });
         for (const message of messages) {
           formattedMessages.push({
@@ -51,7 +54,7 @@ export const codeAgentFunction = inngest.createFunction(
             content: message.content,
           });
         }
-        return formattedMessages;
+        return formattedMessages.reverse();
       }
     );
 
@@ -71,7 +74,7 @@ export const codeAgentFunction = inngest.createFunction(
         "An expert coding agent, specialized in building Next.js applications using Shadcn UI components within a sandboxed environment.",
       system: PROMPT,
       model: openai({
-        model: "gpt-4.1",
+        model: "gpt-5",
       }),
       // model: grok({
       //   model: "grok-code-fast-1",
