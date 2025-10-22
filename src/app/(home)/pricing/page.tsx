@@ -14,7 +14,7 @@ const Page = () => {
         <div className="flex flex-col items-center">
           <Image
             src="/vortex_logo.svg"
-            alt="Vibe"
+            alt="vortex logo"
             width={50}
             height={50}
             className="hidden md:block"
